@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "range-agents-research"
+version = "3.0.0"
+description = "Causal range-breakout and reintegration research; no live order connector"
+requires-python = ">=3.11"
+dependencies = ["numpy==2.3.5", "pandas==2.2.3", "requests==2.32.5"]
+
+[tool.setuptools.packages.find]
+include = ["range_agents*", "collecte*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests_static"]
+markers = ["requires_simulation: needs separate explicit consent; not run in observation-only delivery"]
+
+[tool.coverage.run]
+source = ["range_agents"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.setuptools.package-data]
+collecte = ["collection_plan.json"]

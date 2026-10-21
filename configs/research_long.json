@@ -1,0 +1,279 @@
+{
+  "schema_version": 3,
+  "mode": "observation_only",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "timeframes": [
+    "4h",
+    "1d"
+  ],
+  "data_start": "2021-01-01",
+  "start": "2021-07-01",
+  "end_exclusive": "2025-07-01",
+  "universe": {
+    "kind": "static_exploratory",
+    "snapshots_file": null,
+    "max_assets": 50
+  },
+  "range": {
+    "method": "horizontal",
+    "adaptive": true,
+    "max_candidates": 32,
+    "lookbacks": {
+      "4h": [
+        12,
+        24,
+        48,
+        96,
+        180,
+        360,
+        540,
+        720
+      ],
+      "1d": [
+        7,
+        14,
+        30,
+        60,
+        90,
+        120,
+        180
+      ]
+    },
+    "max_bars": {
+      "4h": 720,
+      "1d": 180
+    },
+    "min_bars": {
+      "4h": 12,
+      "1d": 7
+    },
+    "min_width_pct": 0.5,
+    "max_width_pct": 60.0,
+    "min_width_tr_ratio": 2.5,
+    "touch_band_fraction": 0.15,
+    "min_distinct_touches": 2,
+    "min_alternations": 3,
+    "max_drift_fraction": 0.35,
+    "max_boundary_shift_fraction": 0.4,
+    "expiry_bars": {
+      "4h": 24,
+      "1d": 14
+    },
+    "family_tolerance_pct": 0.15,
+    "refresh_overlap_fraction": 0.5,
+    "bank_size": 12,
+    "approach_bars": 5,
+    "major_pivot_left": 5,
+    "major_pivot_right": 3,
+    "major_min_atr": 2.0
+  },
+  "signal": {
+    "breakout_pct": 0.1,
+    "reintegration_pct": 0.05,
+    "breakout_mode": "fixed",
+    "breakout_vol_multiplier": 0.1,
+    "breakout_range_fraction": 0.01,
+    "breakout_min_pct": 0.01,
+    "breakout_max_pct": 1.0,
+    "rearm_pct": 0.1,
+    "cooldown_ms": 300000,
+    "max_breakouts_per_range": 2,
+    "same_structure_candle": true,
+    "opposite_policy": "hedge",
+    "max_entry_gap_pct": 0.4,
+    "deduplicate_symbol_direction": true,
+    "trigger_source": "last",
+    "reintegration_window": "same_candle",
+    "max_reintegration_ms": 3600000
+  },
+  "agents": {
+    "breakout": {
+      "enabled": true,
+      "stop_pct": 0.6,
+      "stop_mode": "fixed",
+      "stop_vol_multiplier": 0.8,
+      "stop_range_fraction": 0.06,
+      "stop_min_pct": 0.05,
+      "stop_max_pct": 5.0,
+      "tp1_pct": 0.6,
+      "tp2_pct": 1.2,
+      "tp1_fraction": 0.4,
+      "tp2_fraction": 0.3,
+      "breakeven_trigger_pct": null,
+      "runner_trail_pct": 0.8,
+      "max_holding_hours": {
+        "4h": 72,
+        "1d": 120
+      },
+      "model_path": null,
+      "runner_fraction": 0.3,
+      "trailing_activation": "after_last_target",
+      "trailing_trigger_pct": 1.2,
+      "trailing_trigger_r": 2.0,
+      "stop_boundary_margin_pct": 0.05,
+      "stop_excursion_margin_pct": 0.05
+    },
+    "reintegration": {
+      "enabled": true,
+      "stop_pct": 0.6,
+      "stop_mode": "fixed",
+      "stop_vol_multiplier": 0.8,
+      "stop_range_fraction": 0.06,
+      "stop_min_pct": 0.05,
+      "stop_max_pct": 5.0,
+      "tp1_pct": 0.6,
+      "tp2_pct": 1.2,
+      "tp1_fraction": 0.4,
+      "tp2_fraction": 0.3,
+      "breakeven_trigger_pct": null,
+      "runner_trail_pct": 0.8,
+      "max_holding_hours": {
+        "4h": 72,
+        "1d": 120
+      },
+      "model_path": null,
+      "runner_fraction": 0.3,
+      "trailing_activation": "after_last_target",
+      "trailing_trigger_pct": 1.2,
+      "trailing_trigger_r": 2.0,
+      "stop_boundary_margin_pct": 0.05,
+      "stop_excursion_margin_pct": 0.05
+    }
+  },
+  "execution": {
+    "latency_ms": 100,
+    "order_ttl_ms": 5000,
+    "slippage_pct": 0.02,
+    "spread_proxy_pct": 0.02,
+    "fee_pct": 0.05,
+    "participation": 0.02,
+    "require_quotes": false,
+    "max_quote_age_ms": 2000,
+    "max_trade_gap_ms": 120000,
+    "max_mark_age_ms": 5000,
+    "stop_trigger_source": "last",
+    "max_cost_to_stop": 0.75,
+    "funding_mode": "none_unavailable",
+    "adverse_funding_pct_per_8h": 0.01,
+    "rules_kind": "HYPOTHETICAL_NOT_VERIFIED_EXCHANGE_RULES",
+    "rules_default": {
+      "tick": 0.01,
+      "qty_step": 1e-05,
+      "min_qty": 1e-05,
+      "min_notional": 5.0,
+      "reduce_only_min_exempt": true
+    },
+    "rules": {},
+    "rule_history_file": null
+  },
+  "risk": {
+    "initial_capital_usd": 300.0,
+    "risk_per_trade_pct": 0.25,
+    "max_open_risk_pct": 1.0,
+    "max_positions": 3,
+    "max_gross_multiple": 2.0,
+    "leverage_limit": 2.0,
+    "episode_loss_budget_pct": 0.75,
+    "max_same_side_risk_pct": 0.75,
+    "pause_drawdown_pct": null
+  },
+  "research": {
+    "purpose": "research",
+    "development_fraction": 0.8,
+    "initial_train_fraction": 0.4,
+    "folds": 3,
+    "min_train_trades": 50,
+    "min_validation_trades": 30,
+    "min_train_episodes": 15,
+    "min_validation_episodes": 10,
+    "min_validation_blocks": 6,
+    "block_days": 7,
+    "bootstrap_samples": 500,
+    "max_variants": 24,
+    "grid": {
+      "signal.breakout_pct": [
+        0.05,
+        0.1
+      ],
+      "agent.stop_pct": [
+        0.3,
+        0.6,
+        1.0
+      ],
+      "agent.breakeven_trigger_pct": [
+        null,
+        0.6
+      ]
+    },
+    "stress": {
+      "latency_ms": 1000,
+      "slippage_pct": 0.08,
+      "spread_proxy_pct": 0.06
+    },
+    "selection_metric": "calendar_net_return",
+    "calendar_max_state_age_ms": 120000,
+    "global_registry_required": true,
+    "require_one_factor_at_a_time": true
+  },
+  "diagnostics": {
+    "horizons_seconds": [
+      60,
+      300,
+      900,
+      3600,
+      14400
+    ],
+    "counterfactual": true,
+    "max_counterfactuals": 10000
+  },
+  "observation": {
+    "require_verified_archives": true,
+    "allow_partial_coverage": true,
+    "register_viewed_periods": true,
+    "max_event_silence_ms": 120000,
+    "horizons_seconds": [
+      60,
+      300,
+      900,
+      3600,
+      14400
+    ],
+    "export_event_catalog": true
+  },
+  "allocation": {
+    "mode": "sequential",
+    "agent_priority": [
+      "breakout:1d",
+      "reintegration:1d",
+      "breakout:4h",
+      "reintegration:4h"
+    ],
+    "correlation_enabled": false,
+    "correlation_tf": "4h",
+    "correlation_lookback": 60,
+    "correlation_min_pairs": 30,
+    "correlation_threshold": 0.85,
+    "max_correlated_risk_pct": 0.75,
+    "missing_correlation_policy": "diagnostic_only"
+  },
+  "learning": {
+    "enabled": false,
+    "objective": "ridge_net_r",
+    "min_rows": 100,
+    "min_calibration_rows": 30,
+    "min_validation_rows": 30,
+    "min_expected_net_r": 0.0,
+    "max_disagreement_r": 2.0,
+    "ood_quantile": 0.99,
+    "max_model_age_days": 30,
+    "unknown_policy": "abstain",
+    "reference_fallback_approved": false,
+    "max_calibration_error": 0.2,
+    "min_distinct_families": 15,
+    "features": null
+  }
+}

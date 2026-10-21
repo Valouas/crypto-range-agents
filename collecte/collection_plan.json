@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "purpose": "PUBLIC_MARKET_DATA_COLLECTION_ONLY",
+  "provider": "Binance public USD-M futures archives",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "timeframes": [
+    "4h",
+    "1d"
+  ],
+  "data_start": "2021-01-01",
+  "end_exclusive": "2026-09-01",
+  "transaction_start": "2025-01-01",
+  "transaction_end_exclusive": "2025-01-03",
+  "output": "data/reel",
+  "notes": [
+    "Dates UTC. Fin exclusive : le 1er septembre est exclu.",
+    "Univers initial de trois contrats, pas le top 50 historique.",
+    "Les transactions sont une collecte distincte de deux jours, pas un historique transactionnel complet.",
+    "Pas de generation de prix, interpolation, forward-fill, simulation de trades ou envoi d'ordres.",
+    "Ne pas melanger avec data/demo ou des jeux SYNTHETIC de la V2."
+  ]
+}

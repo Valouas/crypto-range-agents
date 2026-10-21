@@ -1,0 +1,20 @@
+{
+  "version": "3.0.0",
+  "base_archive": "range_agents_v2.zip",
+  "base_archive_sha256": "dbb607c110c666410c17f9cf6f819e4442de6ea24700c0f474b83602b9d09076",
+  "local_code_commit": "2f5a04a037535c138cc0197bcab2d88e2e589f1e",
+  "base_commit": "4eeba9d",
+  "released_at_utc": "2026-09-21T01:27:03.286239+00:00",
+  "default_mode": "observation_only",
+  "market_results_included": false,
+  "trained_models_included": false,
+  "publication_preparation": {
+    "prepared_on": "2026-10-22",
+    "source_archive": "range_agents_v3.zip",
+    "source_archive_sha256": "6f24a972b8d6984584da93ab9751b3a29cacaa48f931859fd9ca92ca3c99898c",
+    "application_source_changed": false,
+    "runtime_policy_changed": false,
+    "static_tests_passed": 123,
+    "dynamic_tests_executed": false
+  }
+}

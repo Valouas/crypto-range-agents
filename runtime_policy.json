@@ -1,0 +1,16 @@
+{
+  "policy_version": 1,
+  "project": "RANGE_AGENTS_CRYPTO",
+  "capabilities": {
+    "observation": true,
+    "public_collection": true,
+    "static_checks": true,
+    "backtest": false,
+    "training": false,
+    "paper": false,
+    "synthetic_market": false,
+    "live_orders": false
+  },
+  "manual_authorization": null,
+  "note": "Current permission: authentic data and code controls only. Do not enable experiments without new explicit consent."
+}
